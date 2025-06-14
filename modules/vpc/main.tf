@@ -24,11 +24,26 @@ resource "aws_subnet" "dev-eks-public-subnet" {
   vpc_id = aws_vpc.dev-eks-vpc.id
   cidr_block = var.dev-eks-vpc-public-subnet
   availability_zone = var.dev-eks-public-subnet-az
+  tags = {
+    Name = "dev-eks-public-subnet"
+    Environment = var.Environment[0]
+  }
 }
 
 resource "aws_subnet" "dev-eks-private-subnet" {
   vpc_id = aws_vpc.dev-eks-vpc.id
   cidr_block = var.dev-vpc-private-subnet-cidr
   availability_zone = var.dev-vpc-private-subnet-az
-  
+  tags = {
+    Name = "dev-eks-private-subnet"
+    Environment = var.Environment[0]
+  }
+}
+
+resource "aws_internet_gateway" "dev-eks-igw" {
+  vpc_id = aws_vpc.dev-eks-vpc.id
+  tags = {
+    Name = "dev-eks-igw"
+    Environment = var.Environment[0]
+  }
 }
