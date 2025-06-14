@@ -32,5 +32,11 @@ output "dev-eks-nat-gateway-id" {
 
 output "dev-eks-public-rt-id" {
   description = "ID of the development EKS public route table"
-  value       = aws_route_table.dev-eks-public-rt.id  
+  value       = aws_route_table.dev-public-rt.id  
+}
+
+output "dev-eks-private-rt-id" {
+  description = "ID of the development EKS private route table"
+  value       = aws_route_table.dev-eks-private-rt.id  
+  
 }
