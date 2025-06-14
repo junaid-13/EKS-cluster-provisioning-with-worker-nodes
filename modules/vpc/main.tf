@@ -52,3 +52,19 @@ resource "aws_internet_gateway_attachment" "dev-eks-igw-attachment" {
   vpc_id = aws_vpc.dev-eks-vpc.id
   internet_gateway_id = aws_internet_gateway.dev-eks-igw.id
 }
+
+resource "aws_eip" "dev-eks-nat-eip" {
+  domain = "vpc"
+  tags = {
+    Name = "dev-eks-nat-eip"
+    Environment = var.Environment[0]
+  }
+}
+resource "aws_nat_gateway" "dev-eks-nat-gateway" {
+  allocation_id = aws_eip.dev-eks-nat-eip.id
+  subnet_id    = aws_subnet.dev-eks-public-subnet.id
+  tags = {
+    Name = "dev-eks-nat-gateway"
+    Environment = var.Environment[0]
+  }
+}
