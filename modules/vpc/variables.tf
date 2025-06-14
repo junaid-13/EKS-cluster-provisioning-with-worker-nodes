@@ -40,3 +40,9 @@ variable "dev-vpc-private-subnet-az" {
   default     = "us-west-1b"
   
 }
+
+variable "dev-eks-public-rt" {
+  description = "Route table for the development VPC public subnet"
+  type        = string
+  default     = "dev-eks-public-rt"
+}

@@ -68,3 +68,12 @@ resource "aws_nat_gateway" "dev-eks-nat-gateway" {
     Environment = var.Environment[0]
   }
 }
+
+resource "aws_route_table" "dev-public-rt" {
+  vpc_id = aws_vpc.dev-eks-vpc.id
+
+  tags = {
+    Name = var.dev-eks-public-rt
+    Environment = var.Environment[0]
+  }
+}
