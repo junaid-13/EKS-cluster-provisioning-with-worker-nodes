@@ -4,7 +4,18 @@ resource "aws_vpc" "dev-eks-vpc" {
   enable_dns_hostnames = true
   tags = {
     Name = "dev-eks-vpc"
-    Environment = "Development"
+    Environment = var.Environment[0]
+  }
+  
+}
+
+resource "aws_vpc" "prod-eks-VPC" {
+  cidr_block = var.prod-vpc-cidr
+  enable_dns_support = true
+  enable_dns_hostnames = true
+  tags = {
+    Name = "prod-eks-vpc"
+    Environment = var.Environment[1]
   }
   
 }
