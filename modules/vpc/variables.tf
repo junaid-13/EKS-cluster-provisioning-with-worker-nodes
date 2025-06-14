@@ -25,7 +25,7 @@ variable "dev-eks-vpc-public-subnet" {
 variable "dev-eks-public-subnet-az" {
   description = "Availability Zone for the development VPC public subnet"
   type        = string
-  default     = "us-west-1a"
+  default     = "us-east-1a"
 }
 
 variable "dev-vpc-private-subnet-cidr" {
@@ -37,7 +37,7 @@ variable "dev-vpc-private-subnet-cidr" {
 variable "dev-vpc-private-subnet-az" {
   description = "Availability Zone for the development VPC private subnet"
   type        = string
-  default     = "us-west-1b"
+  default     = "us-east-1f"
   
 }
 
