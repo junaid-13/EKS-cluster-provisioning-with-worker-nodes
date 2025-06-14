@@ -78,6 +78,12 @@ resource "aws_route_table" "dev-public-rt" {
   }
 }
 
+resource "aws_route_table_association" "dev-eks-public-rt-association" {
+  subnet_id      = aws_subnet.dev-eks-public-subnet.id
+  route_table_id = aws_route_table.dev-public-rt.id
+  
+}
+
 resource "aws_route_table" "dev-eks-private-rt" {
   vpc_id = aws_vpc.dev-eks-vpc.id
 
@@ -88,3 +94,7 @@ resource "aws_route_table" "dev-eks-private-rt" {
   
 }
 
+resource "aws_route_table_association" "dev-eks-private-rt-association" {
+  subnet_id      = aws_subnet.dev-eks-private-subnet.id
+  route_table_id = aws_route_table.dev-eks-private-rt.id
+}
