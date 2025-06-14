@@ -77,3 +77,14 @@ resource "aws_route_table" "dev-public-rt" {
     Environment = var.Environment[0]
   }
 }
+
+resource "aws_route_table" "dev-eks-private-rt" {
+  vpc_id = aws_vpc.dev-eks-vpc.id
+
+  tags = {
+    Name = var.dev-eks-private-rt
+    Environment = var.Environment[0]
+  }
+  
+}
+

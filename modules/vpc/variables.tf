@@ -46,3 +46,10 @@ variable "dev-eks-public-rt" {
   type        = string
   default     = "dev-eks-public-rt"
 }
+
+variable "dev-eks-private-rt" {
+  description = "Route table for the development VPC private subnet"
+  type        = string
+  default     = "dev-eks-private-rt"
+  
+}
