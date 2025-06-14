@@ -29,3 +29,8 @@ output "dev-eks-nat-gateway-id" {
   description = "ID of the development EKS NAT gateway"
   value       = aws_nat_gateway.dev-eks-nat-gateway.id
 }
+
+output "dev-eks-public-rt-id" {
+  description = "ID of the development EKS public route table"
+  value       = aws_route_table.dev-eks-public-rt.id  
+}
