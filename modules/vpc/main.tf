@@ -19,3 +19,9 @@ resource "aws_vpc" "prod-eks-VPC" {
   }
   
 }
+
+resource "aws_subnet" "dev-eks-public-subnet" {
+  vpc_id = aws_vpc.dev-eks-vpc.id
+  cidr_block = var.dev-eks-vpc-public-subnet
+  availability_zone = var.dev-eks-public-subnet-az
+}
