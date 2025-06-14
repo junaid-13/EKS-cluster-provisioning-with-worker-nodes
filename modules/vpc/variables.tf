@@ -11,7 +11,7 @@ variable "prod-vpc-cidr" {
 }
 variable "Environment" {
   description = "Environment for the VPC"
-  type        = array(string)
+  type        = list(string)
     default     = ["Development", "Production"] 
 }
 
