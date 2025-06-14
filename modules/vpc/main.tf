@@ -47,12 +47,12 @@ resource "aws_internet_gateway" "dev-eks-igw" {
     Environment = var.Environment[0]
   }
 }
-
+/*
 resource "aws_internet_gateway_attachment" "dev-eks-igw-attachment" {
   vpc_id = aws_vpc.dev-eks-vpc.id
   internet_gateway_id = aws_internet_gateway.dev-eks-igw.id
 }
-
+*/
 resource "aws_eip" "dev-eks-nat-eip" {
   domain = "vpc"
   tags = {
