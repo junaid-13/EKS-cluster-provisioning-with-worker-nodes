@@ -4,7 +4,7 @@ terraform {
     key = "/env/dev/terraformm.tfstate"
     region = "us-east-1"
     encrypt = true
-    dynamodb_table = "terraform-locks"
+    dynamodb_table = "day-2-terraform-locks"
   }
   required_providers {
     aws = {
