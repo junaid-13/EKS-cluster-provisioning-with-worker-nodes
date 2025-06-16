@@ -98,3 +98,9 @@ resource "aws_route_table_association" "dev-eks-private-rt-association" {
   subnet_id      = aws_subnet.dev-eks-private-subnet.id
   route_table_id = aws_route_table.dev-eks-private-rt.id
 }
+
+resource "aws_route" "dev-eks-public-rt-1-from-igw-to-public-subnet" {
+  route_table_id         = aws_route_table.dev-public-rt.id
+  destination_cidr_block = "0.0.0.0/16"
+  gateway_id             = aws_internet_gateway.dev-eks-igw.id
+}
