@@ -104,3 +104,9 @@ resource "aws_route" "dev-eks-public-rt-1-from-igw-to-public-subnet" {
   destination_cidr_block = "0.0.0.0/16"
   gateway_id             = aws_internet_gateway.dev-eks-igw.id
 }
+
+resource "aws_route" "dev-eks-private-rt-1-from-nat-to-private-subnet" {
+  route_table_id         = aws_route_table.dev-eks-private-rt.id
+  destination_cidr_block = "10.0.2.0/24"
+  nat_gateway_id         = aws_nat_gateway.dev-eks-nat-gateway.id
+}
